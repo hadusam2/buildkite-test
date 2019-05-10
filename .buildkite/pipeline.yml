@@ -5,7 +5,7 @@ steps:
       echo "Done"
     label: "tmp_test"
   - command: ".buildkite/pipeline.sh | buildkite-agent pipeline upload"
-    label: :pipeline: Upload
+    label: ":pipeline: Upload"
   - wait
   - command: "echo \"Done\""
     label: Run other operations
