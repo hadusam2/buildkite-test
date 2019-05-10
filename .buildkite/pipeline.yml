@@ -1,7 +1,7 @@
 steps:
   - command: "echo \"Test\"\nsleep 10\necho \"Done\""
     label: "tmp_test"
-  - command: ".buildkite/pipeline.sh | buildkite-agent pipeline upload"
+  - command: ".buildkite/pipeline.sh \| buildkite-agent pipeline upload"
     label: :pipeline: Upload
   - wait
   - command: "echo \"Done\""
