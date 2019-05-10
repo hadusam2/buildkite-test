@@ -1,8 +1,6 @@
 steps:
-  - label: Example Test
-    command: echo "Hello!"
-  - label: :pipeline: Upload
-    command: .buildkite/pipeline.sh | buildkite-agent pipeline upload
+  - command: .buildkite/pipeline.sh | buildkite-agent pipeline upload
+    label: :pipeline: Upload
   - wait
-  - label: Run other operations
-    command: echo "Done!"
+  - command: echo "Done"
+    label: Run other operations
