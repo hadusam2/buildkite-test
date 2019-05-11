@@ -3,9 +3,14 @@ steps:
       echo "Test"
       sleep 10
       echo "Done"
-    label: "tmp_test"
-  - command: ".buildkite/pipeline.sh | buildkite-agent pipeline upload"
+    label: "Global setup"
+  - command: |
+      .buildkite/pipeline.sh | tee .buildkite/${JOB_NAME}.yml
+      buildkite-agent pipeline upload .buildkite/${JOB_NAME}
     label: ":pipeline: Upload"
+    env:
+      JOB_NAME: parallel_jobs
+
   - wait
   - command: "echo \"Done\""
-    label: Run other operations
+    label: ":tada: Global teardown"
