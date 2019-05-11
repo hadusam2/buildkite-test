@@ -5,9 +5,9 @@ steps:
       echo "Done"
     label: "Global setup"
   - command: |
-      echo ${JOB_NAME}
-      .buildkite/pipeline.sh | tee .buildkite/${JOB_NAME}.yml
-      buildkite-agent pipeline upload .buildkite/${JOB_NAME}
+      echo \${JOB_NAME}
+      .buildkite/pipeline.sh | tee .buildkite/\${JOB_NAME}.yml
+      buildkite-agent pipeline upload .buildkite/\${JOB_NAME}
     label: ":pipeline: Upload"
     env:
       JOB_NAME: "parallel_jobs"
